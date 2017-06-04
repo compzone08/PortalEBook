@@ -1,0 +1,4 @@
+function showlatestposts(json){document.write('<ul id="recent-posts">');for(var i=0;i<10;i++){var entry=json.feed.entry[i];var posttitle=entry.title.$t;var postsurl;if(i==json.feed.entry.length)break;for(var k=0;k<entry.link.length;k++){if(entry.link[k].rel=='alternate'){postsurl=entry.link[k].href;break;}}
+document.write('<li class="recent-posts">');document.write('<a href="'+ postsurl+'" target ="_top" title="'+ posttitle+'">'+ posttitle+'</a>');document.write('</li>');}
+document.write('</ul>');};
+document.write("<scr" + "ipt type=\"text/javascript\" src=\"/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestposts\"></scr" + "ipt>");
